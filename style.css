@@ -270,3 +270,10 @@ body {
 .form-status.error {
   color: #ef4444;
 }
+
+.card-link-wrapper {
+  display: block;        /* ให้ <a> ขยายเต็มพื้นที่ */
+  text-decoration: none; /* เอาขีดเส้นใต้ออก */
+  color: inherit;        /* ให้สีตัวอักษรใช้ตามที่ตั้งไว้ในการ์ด */
+}
+
