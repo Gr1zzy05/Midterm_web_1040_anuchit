@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Developer Portfolio</title>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
 
@@ -56,13 +57,14 @@
 
     <!-- Projects Section -->
     <section id="projects" class="section">
-      <h2 class="section-title">ผลงานที่ผ่านมา</h2>
+      <h2 class="section-title">My works</h2>
 
       <!-- Filter Controls -->
       <div class="filter-controls">
         <button type="button" class="filter-btn active" data-filter="all">ทั้งหมด</button>
         <button type="button" class="filter-btn" data-filter="web">Web Dev</button>
         <button type="button" class="filter-btn" data-filter="game">Game / 3D</button>
+        <button type="button" class="filter-btn" data-filter="Assignments">Assignments</button>
       </div>
 
       <!-- Project Grid -->
@@ -97,16 +99,51 @@
           </div>
         </article>
       </div>
+
+       <article class="project-card" data-category="Assignments">
+          <div class="project-badge">Past Assignments</div>
+          <h3>Past Assignments</h3>
+          <p>Assignments 1</p>
+          <div class="project-tags">
+            <span>JavaScript</span>
+            <span>HTML</span>
+          </div>
+        </article>
+      </div>
     </section>
+
+     <article class="project-card" data-category="Assignments">
+          <div class="project-badge">Past Assignments</div>
+          <h3>Past Assignments</h3>
+          <p>Assignments 2</p>
+          <div class="project-tags">
+            <span>JavaScript</span>
+            <span>HTML</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+     <article class="project-card" data-category="Assignments">
+          <div class="project-badge">Past Assignments</div>
+          <h3>Past Assignments</h3>
+          <p>Assignments 3</p>
+          <div class="project-tags">
+            <span>JavaScript</span>
+            <span>HTML</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
 
     <!-- Contact Section -->
     <section id="contact" class="section">
-      <h2 class="section-title">ติดต่อ</h2>
+      <h2 class="section-title">Contact</h2>
       <form id="contactForm" class="contact-form" novalidate>
         <div class="form-group">
-          <label for="nameInput">ชื่อของคุณ</label>
-          <input type="text" id="nameInput" name="name" required placeholder="เช่น สมชาย ใจดี">
-        </div>
+          <label for="nameInput">IG :</label>
         <div class="form-group">
-          <label for="emailInput">อีเมล</label>
-          <input type="email" id="emailInput" name="email
+          <label for="emailInput">Facebook :</label>
+           <div class="form-group">
+          <label for="emailInput">Linkin :</label>
