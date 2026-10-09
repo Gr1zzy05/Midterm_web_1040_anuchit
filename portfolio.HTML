@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anuc_K_1040.Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="studio-logo">
+  <span class="logo-text">Anuc_K.Portfolio</span>
+  </div>
+
+  <nav class="nav-links studio-nav">
+    <!-- ลิงก์กลับไปหน้าแรก index.html -->
+    <a href="Homepage.HTML">HOME</a>
+    <!-- ลิงก์ไปยังส่วนต่างๆ ในหน้าปัจจุบัน -->
+    <a href="#about" class="active">ABOUT</a>
+    <a href="#skills">SKILLS</a>
+    <a href="#projects">PROJECTS</a>
+    <a href="#contact">CONTACTS</a>
+  </nav>
+
+  <div class="nav-actions studio-socials">
+    <button id="musicToggleBtn" type="button" class="btn btn-secondary">
+      🎵 Play Music
+    </button>
+    <button id="themeToggleBtn" type="button" class="btn-theme" aria-label="Toggle Theme">
+      🌙
+    </button>
+  </div>
+  
+  <audio id="bgmAudio" loop preload="none">
+    <source src="BGM\Café Theme GirlsFrontline 2 Exilium.mp3" type="audio/mpeg">
+  </audio>
+</header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-container">
+  <div class="hero-avatar-wrapper">
+    <img src="Pics\MyPic.jpg" alt="Profile Avatar" class="hero-avatar">
+  </div>
+  <div class="hero-text-content">
+    <h1 class="hero-tagline">
+      "Lets Revolutionizing VR Gaming industry with new technology"
+    </h1>
+    <div class="hero-bio">
+      <p>
+        Hello my name is <strong>Anuchit Kaewkajorn</strong> am game programmer, 3D technical artist, and systems developer.
+        Focused on building immersive interactive mechanics, custom shaders, and responsive web platforms.
+      </p>
+    </div>
+  </div>
+</section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Frontend & Web</h3>
+          <p>HTML5, CSS3, JavaScript (ES6+), Responsive Layouts, DOM Manipulation</p>
+        </div>
+        <div class="skill-card">
+          <h3>Game & Systems</h3>
+          <p>Unity (C#), Game Physics, Mechanics Programming</p>
+        </div>
+         <div class="skill-card">
+          <h3>3D </h3>
+          <p>Modeling,rigging,Animating</p>
+        </div>
+         <div class="skill-card">
+          <h3>IOTs </h3>
+          <p>Esp32,Arduino uno,Arduino IDE</p>
+        </div>
+         <div class="skill-card">
+          <h3>Hardware </h3>
+          <p>Pc building ,Hardware fixing</p>
+        </div>
+         <div class="skill-card">
+          <h3>Cooking</h3>
+          <p>I can also cook some food too... 😂</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+      <h2 class="section-title">My works</h2>
+
+      <!-- Filter Controls -->
+      <div class="filter-controls">
+        <button type="button" class="filter-btn active" data-filter="all">ทั้งหมด</button>
+        <button type="button" class="filter-btn" data-filter="3D">3D</button>
+        <button type="button" class="filter-btn" data-filter="game">Game</button>
+        <button type="button" class="filter-btn" data-filter="HardWare">HardWare</button>
+        <button type="button" class="filter-btn" data-filter="Assignments">Assignments</button>
+      </div>
+
+      <!-- Project Grid -->
+      <div class="projects-grid">
+        <article class="project-card" data-category="game">
+          <div class="project-badge">Game</div>
+          <h3>2D / 3D Action Prototype</h3>
+          <p>พัฒนาระบบควบคุมตัวละคร, Dynamic Inventory และ State Machine ใน Unity</p>
+          <div class="project-tags">
+            <span>Unity</span>
+            <span>C#</span>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="3D">
+          <div class="project-badge">3D</div>
+          <h3>Interactive Web Canvas Tool</h3>
+          <p>ระบบเว็บแอปพลิเคชันที่เน้นการประมวลผลฝั่ง Client และ UI ที่ลื่นไหล</p>
+          <div class="project-tags">
+            <span>JavaScript</span>
+            <span>CSS Grid</span>
+          </div>
+        </article>
+
+         <article class="project-card" data-category="HardWare">
+          <div class="project-badge">HardWare</div>
+          <h3>Interactive Web Canvas Tool</h3>
+          <p>ระบบเว็บแอปพลิเคชันที่เน้นการประมวลผลฝั่ง Client และ UI ที่ลื่นไหล</p>
+          <div class="project-tags">
+            <span>JavaScript</span>
+            <span>CSS Grid</span>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="game">
+          <div class="project-badge">Game</div>
+          <h3>Mobile Tilt & Touch Controller</h3>
+          <p>ระบบจัดการ Touch & Gyroscopic Inputs พร้อมการปรับแต่ง Performance บนอุปกรณ์พกพา</p>
+          <div class="project-tags">
+            <span>Unity</span>
+            <span>Mobile</span>
+          </div>
+        </article>
+
+      <a href="Assignments\assignment3\index.html" class="card-link-wrapper"> 
+     <article class="project-card" data-category="Assignments">
+          <div class="project-badge">Past Assignments</div>
+          <h3>CinamonRoll</h3>
+          <p>Assignments 3</p>
+          <div class="project-tags">
+            <span>JavaScript</span>
+            <span>HTML</span>
+            <span>CSS</span>
+          </div>
+        </article>
+        </a>
+
+         <a href="Assignments\assignment4\index.html" class="card-link-wrapper"> 
+     <article class="project-card" data-category="Assignments">
+          <div class="project-badge">Past Assignments</div>
+          <h3>PizaDip</h3>
+          <p>Assignments 4</p>
+          <div class="project-tags">
+            <span>JavaScript</span>
+            <span>HTML</span>
+            <span>CSS</span>
+          </div>
+        </article>
+        </a>
+
+         <a href="Assignments\assignment5\index.html" class="card-link-wrapper"> 
+     <article class="project-card" data-category="Assignments">
+          <div class="project-badge">Past Assignments</div>
+          <h3>Blog</h3>
+          <p>Assignments 5</p>
+          <div class="project-tags">
+            <span>JavaScript</span>
+            <span>HTML</span>
+            <span>CSS</span>
+          </div>
+        </article>
+        </a>
+
+
+         <a href="Assignments\assignment-6\register.html" class="card-link-wrapper"> 
+     <article class="project-card" data-category="Assignments">
+          <div class="project-badge">Past Assignments</div>
+          <h3>RegisterSystem</h3>
+          <p>Assignments 6</p>
+          <div class="project-tags">
+            <span>JavaScript</span>
+            <span>HTML</span>
+            <span>CSS</span>
+          </div>
+        </article>
+        </a>
+
+
+         <a href="Assignments\assignment7\index.html" class="card-link-wrapper"> 
+     <article class="project-card" data-category="Assignments">
+          <div class="project-badge">Past Assignments</div>
+          <h3>Block clicking game</h3>
+          <p>Assignments 7</p>
+          <div class="project-tags">
+            <span>JavaScript</span>
+            <span>HTML</span>
+            <span>CSS</span>
+          </div>
+        </article>
+        </a>
+      </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+      <h2 class="section-title">Contacts</h2>
+      <form id="contactForm" class="contact-form" novalidate>
+        <div class="form-group">
+          <label for="nameInput">IG : <a href="https://www.instagram.com/anuchit_kaewkajorn/?hl=en">Link</a></label>
+        <div class="form-group">
+          <label for="emailInput">Facebook : <a href="https://web.facebook.com/ThesonicTH">Link</a></label>
+           <div class="form-group">
+          <label for="emailInput">Linkin : <a href="https://www.linkedin.com/feed/">Link</a></label>

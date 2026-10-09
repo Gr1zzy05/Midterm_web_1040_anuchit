@@ -1,12 +1,23 @@
 :root {
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8fafc;
+  --bg-primary: #050505;
+  --bg-secondary: #0d0d0f;
+  --text-primary: #f4f4f5;
+  --text-secondary: #a1a1aa;
+  --card-bg: #111115;
+  --card-border: #27272a;
+  --accent: #38bdf8;
+  --accent-hover: #0ea5e9;
+}
+
+[data-theme="light"] {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
   --text-primary: #0f172a;
   --text-secondary: #475569;
   --card-bg: #ffffff;
   --card-border: #e2e8f0;
-  --accent: #2563eb;
-  --accent-hover: #1d4ed8;
+  --accent: #0284c7;
+  --accent-hover: #0369a1;
 }
 
 [data-theme="dark"] {
@@ -27,112 +38,164 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background-color: var(--bg-primary);
   color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  letter-spacing: 0.5px;
   line-height: 1.6;
   transition: background-color 0.25s ease, color 0.25s ease;
+  
 }
 
-/* Navbar */
+/* Navbar ส่วนกลาง */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: var(--card-bg);
-  border-bottom: 1px solid var(--card-border);
-  position: sticky;
+  position: fixed; /* ตรึงติดขอบบนของหน้าต่างเบราว์เซอร์เสมอ */
   top: 0;
-  z-index: 100;
+  left: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 1.2rem 2.5rem;
+  background-color: rgba(5, 5, 5, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--card-border);
+  z-index: 1000; /* ดันให้อยู่หน้าสุดเสมอ */
 }
 
 .brand-logo {
-  font-weight: 700;
-  font-size: 1.25rem;
-  color: var(--accent);
+  justify-self: start;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #ffffff;
   text-decoration: none;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  justify-self: center;
+  display: flex;
+  gap: 1.5rem;
 }
 
 .nav-links a {
-  margin: 0 0.75rem;
-  text-decoration: none;
   color: var(--text-secondary);
-  font-weight: 500;
-  transition: color 0.2s;
-}
-
-.nav-links a:hover {
-  color: var(--accent);
-}
-
-#Mypic{
-   width: 30%;       /* บังคับให้รูปกว้างพอดีกับกล่องที่ครอบอยู่ */
-  height: 30%;     /* กำหนดความสูงคงที่เพื่อให้รูปทุกใบสูงเท่ากัน */
-  object-fit: cover; /* จัดการให้รูปเต็มพื้นที่โดยไม่เสียสัดส่วน (ไม่บีบแบน) */
-  border-radius: 8px 8px 0 0; /* เพิ่มขอบมนด้านบนให้เข้ากับกรอบของการ์ด */
-  display: block;    /* ป้องกันช่องว่างแปลกๆ ด้านล่างของรูป */
-  margin: auto;
-}
-.btn-theme {
-  background: none;
-  border: 1px solid var(--card-border);
-  padding: 0.4rem 0.8rem;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-/* Hero */
-.hero-section {
-  padding: 5rem 2rem;
-  text-align: center;
-  background-color: var(--bg-secondary);
-}
-
-.hero-content h1 {
-  font-size: 2.25rem;
-  margin-bottom: 1rem;
-}
-
-.highlight {
-  color: var(--accent);
-}
-
-.hero-content p {
-  color: var(--text-secondary);
-  max-width: 600px;
-  margin: 0 auto 1.5rem auto;
-}
-
-/* Buttons */
-.btn {
-  display: inline-block;
-  padding: 0.6rem 1.2rem;
-  border-radius: 6px;
   text-decoration: none;
-  font-weight: 600;
-  cursor: pointer;
-  border: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.2s ease, border-bottom 0.2s ease;
+  padding-bottom: 4px;
 }
 
-.btn-primary {
-  background-color: var(--accent);
+.nav-links a:hover,
+.nav-links a.active {
   color: #ffffff;
+  border-bottom: 2px solid var(--accent);
 }
 
-.btn-primary:hover {
-  background-color: var(--accent-hover);
+.nav-actions {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
-.btn-secondary {
-  background-color: transparent;
-  color: var(--text-primary);
+/* สไตล์ปุ่มใน Navbar */
+.btn-theme,
+#musicToggleBtn {
+  background: var(--card-bg);
   border: 1px solid var(--card-border);
-  margin-left: 0.5rem;
+  color: var(--text-primary);
+  border-radius: 6px;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  width: auto;
+  transition: border-color 0.2s ease, background 0.2s ease;
 }
 
-/* Sections */
+.btn-theme:hover,
+#musicToggleBtn:hover {
+  border-color: var(--accent);
+}
+
+#bgmAudio {
+  display: none;
+}
+
+/* Hero Section (DillonGoo Style) */
+.hero-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+}
+
+.hero-avatar-wrapper {
+  flex-shrink: 0;
+}
+
+.hero-avatar {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.hero-text-content {
+  flex: 1;
+  max-width: 680px;
+}
+
+.hero-tagline {
+  font-size: 1.75rem;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.4;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.hero-bio p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
+}
+
+.hero-bio p:last-child {
+  margin-bottom: 0;
+}
+
+.hero-bio strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.hero-bio a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.hero-bio a:hover {
+  color: var(--accent-hover);
+}
+
+/* Sections ทั่วไป */
 .section {
   max-width: 1000px;
   margin: 0 auto;
@@ -143,6 +206,7 @@ body {
   text-align: center;
   font-size: 1.75rem;
   margin-bottom: 2rem;
+  letter-spacing: 1px;
 }
 
 /* Skills */
@@ -157,6 +221,12 @@ body {
   border: 1px solid var(--card-border);
   padding: 1.5rem;
   border-radius: 8px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.skill-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
 }
 
 .skill-card h3 {
@@ -170,6 +240,7 @@ body {
   justify-content: center;
   gap: 0.5rem;
   margin-bottom: 2rem;
+  flex-wrap: wrap;
 }
 
 .filter-btn {
@@ -180,6 +251,7 @@ body {
   border-radius: 20px;
   cursor: pointer;
   font-weight: 500;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .filter-btn.active {
@@ -190,10 +262,22 @@ body {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.5rem;
+  align-items: stretch;
 }
 
+.card-link-wrapper {
+ display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+  height: 100%;
+}
+.card-link-wrapper .project-card {
+  flex: 1; /* ขยายให้เต็มพื้นที่การ์ด */
+}
 .project-card {
   background-color: var(--card-bg);
   border: 1px solid var(--card-border);
@@ -201,15 +285,18 @@ body {
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s, box-shadow 0.2s;
+  height: 100%;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .project-card:hover {
   transform: translateY(-4px);
+  border-color: var(--accent);
 }
 
-.project-card.is-hidden {
-  display: none;
+.project-card.is-hidden,
+.card-link-wrapper.is-hidden {
+  display: none !important;
 }
 
 .project-badge {
@@ -220,11 +307,20 @@ body {
   margin-bottom: 0.5rem;
 }
 
+.project-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
 .project-tags {
   margin-top: auto;
   padding-top: 1rem;
   display: flex;
   gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .project-tags span {
@@ -236,33 +332,54 @@ body {
 }
 
 /* Contact Form */
+#contactForm,
 .contact-form {
   max-width: 500px;
   margin: 0 auto;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: 0.4rem;
 }
 
 .form-group label {
   font-size: 0.9rem;
+  color: var(--text-secondary);
   font-weight: 500;
 }
 
-.form-group input,
 .form-group textarea {
-  padding: 0.6rem;
+  padding: 0.75rem 1rem;
   border-radius: 6px;
   border: 1px solid var(--card-border);
-  background-color: var(--card-bg);
+  background-color: var(--bg-secondary);
   color: var(--text-primary);
-  font-size: 1rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  color: #ffffff;
+  padding: 0.75rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
 }
 
 .form-status {
@@ -279,9 +396,241 @@ body {
   color: #ef4444;
 }
 
-.card-link-wrapper {
-  display: block;        /* ให้ <a> ขยายเต็มพื้นที่ */
-  text-decoration: none; /* เอาขีดเส้นใต้ออก */
-  color: inherit;        /* ให้สีตัวอักษรใช้ตามที่ตั้งไว้ในการ์ด */
+/* สไตล์เฉพาะหน้าแรก Cinematic Video (Home Page) */
+.home-cinematic-body {
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  color: #ffffff;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
 }
 
+.navbar-studio {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 50;
+}
+
+.studio-logo .logo-text {
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.studio-nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.studio-nav a {
+  color: #a1a1aa;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  transition: color 0.2s ease;
+}
+
+.studio-nav a:hover,
+.studio-nav a.active {
+  color: #ffffff;
+  border-bottom: 2px solid #ffffff;
+  padding-bottom: 4px;
+}
+
+.studio-socials {
+  display: flex;
+  gap: 1.25rem;
+  font-size: 1.1rem;
+}
+
+.studio-socials a {
+  text-decoration: none;
+  filter: grayscale(1);
+  transition: filter 0.2s ease;
+}
+
+.studio-socials a:hover {
+  filter: grayscale(0);
+}
+
+.hero-video-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.video-center-btn {
+  position: relative;
+  z-index: 10;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.video-center-btn:hover {
+  background: rgba(255, 255, 255, 0.45);
+  transform: scale(1.1);
+}
+
+/* Media Queries สำหรับหน้าจอขนาดเล็ก */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+    padding: 3rem 1.5rem;
+  }
+
+  .hero-avatar {
+    width: 180px;
+    height: 180px;
+  }
+
+  .hero-tagline {
+    font-size: 1.35rem;
+  }
+}
+
+/* เลเยอร์ Overlay ข้อความต้อนรับบนวิดีโอ */
+.hero-video-overlay {
+  position: absolute;
+  bottom: 12%; /* วางไว้ค่อนไปทางด้านล่างเพื่อให้มองเห็นฉากวิดีโอและปุ่มตรงกลางได้ชัดเจน */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  text-align: center;
+  width: 90%;
+  max-width: 800px;
+  pointer-events: none; /* เพื่อไม่ให้ตัวกล่องไปบล็อกการคลิกวิดีโอ */
+}
+
+/* หัวข้อต้อนรับ */
+.overlay-title {
+  font-size: 2.75rem;
+  font-weight: 900;
+  letter-spacing: 4px;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* คำบรรยายสั้นๆ ใต้หัวข้อ */
+.overlay-subtitle {
+  font-size: 1rem;
+  letter-spacing: 2px;
+  color: #e4e4e7;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.btn-overlay-cta {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  border-radius: 4px;
+  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+
+.btn-overlay-cta:hover {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* เงาฟิล์มดำบางๆ ทับทั้งจอเพื่อให้อ่านตัวหนังสือและเห็นปุ่มชัดขึ้น */
+.hero-video-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.1) 40%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ปรับขนาดบนหน้าจอมือถือ */
+@media (max-width: 768px) {
+  .hero-video-overlay {
+    bottom: 8%;
+  }
+
+  .overlay-title {
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+  }
+
+  .overlay-subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    margin-bottom: 1.25rem;
+  }
+
+  .btn-overlay-cta {
+    padding: 0.6rem 1.4rem;
+    font-size: 0.75rem;
+  }
+}

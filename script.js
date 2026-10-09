@@ -47,5 +47,22 @@ filterButtons.forEach((btn) => {
   });
 });
 
+const musicBtn = document.getElementById("musicToggleBtn");
+const bgm = document.getElementById("bgmAudio");
+let isPlaying = false;
+
+// ลดความดังลงเหลือ 30% เพื่อไม่ให้เสียงดังกระแทกหูผู้ใช้
+bgm.volume = 0.3; 
+
+musicBtn.addEventListener("click", () => {
+  if (isPlaying) {
+    bgm.pause();
+    musicBtn.textContent = "🎵 Play Music";
+  } else {
+    bgm.play();
+    musicBtn.textContent = "⏸️ Pause Music";
+  }
+  isPlaying = !isPlaying;
+});
 
 });
