@@ -132,48 +132,64 @@ body {
 
 /* Hero Section (DillonGoo Style) */
 .hero-container {
+width: 100%;
   max-width: 1100px;
-  margin: 0 auto;
-  padding: 6rem 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  
+  /* ปรับระยะขอบบน: เพิ่ม padding-top เป็น 8rem หรือ 9rem เพื่อดันให้ต่ำลง */
+  padding-top: 10rem;    /* ค่าเดิมประมาณ 5rem - 6rem */
+  padding-bottom: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 4rem;
+  gap: 3.5rem;
+  box-sizing: border-box;
 }
 
+
 .hero-avatar-wrapper {
-  flex-shrink: 0;
+ flex: 0 0 auto;          /* ไม่ให้รูปโดนบีบหรือยืด */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero-avatar {
-  width: 260px;
-  height: 260px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
   object-fit: cover;
   display: block;
   background-color: var(--card-bg);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
 }
 
 .hero-text-content {
-  flex: 1;
-  max-width: 680px;
+  flex: 0 1 580px;         /* ล็อกความกว้างให้อ่านง่ายและบาลานซ์กับขนาดรูป */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
 }
 
 .hero-tagline {
-  font-size: 1.75rem;
-  font-weight: 400;
+  font-size: 1.65rem;
+  font-weight: 500;
   font-style: italic;
   line-height: 1.4;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
   color: var(--text-primary);
 }
 
 .hero-bio p {
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1.7;
   color: var(--text-secondary);
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 .hero-bio p:last-child {
@@ -633,4 +649,120 @@ body {
     padding: 0.6rem 1.4rem;
     font-size: 0.75rem;
   }
+}
+
+/* ================= MODAL OVERLAY STYLES ================= */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85); /* ฉากหลังดำโปร่งแสง */
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000; /* สูงกว่า Navbar */
+  padding: 1.5rem;
+  opacity: 1;
+  transition: opacity 0.25s ease;
+}
+
+.modal-backdrop.is-hidden {
+  display: none;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal-dialog {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  animation: modalPop 0.25s ease-out;
+}
+
+@keyframes modalPop {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.2s;
+}
+
+.modal-close:hover {
+  color: var(--text-primary);
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-image-wrapper img {
+  width: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+  border-bottom: 1px solid var(--card-border);
+  display: block;
+}
+
+.modal-info {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modal-info h2 {
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  margin-top: 0.25rem;
+}
+
+.modal-info p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.modal-tech-stack h4 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.modal-footer-cta {
+  margin-top: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--card-border);
+}
+
+.project-card.modal-trigger {
+  cursor: pointer;
 }

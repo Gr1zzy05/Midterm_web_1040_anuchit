@@ -97,52 +97,291 @@
         <button type="button" class="filter-btn active" data-filter="all">ทั้งหมด</button>
         <button type="button" class="filter-btn" data-filter="3D">3D</button>
         <button type="button" class="filter-btn" data-filter="game">Game</button>
-        <button type="button" class="filter-btn" data-filter="HardWare">HardWare</button>
+        <button type="button" class="filter-btn" data-filter="HardWare">Hardware</button>
         <button type="button" class="filter-btn" data-filter="Assignments">Assignments</button>
       </div>
 
       <!-- Project Grid -->
       <div class="projects-grid">
-        <article class="project-card" data-category="game">
-          <div class="project-badge">Game</div>
-          <h3>2D / 3D Action Prototype</h3>
-          <p>พัฒนาระบบควบคุมตัวละคร, Dynamic Inventory และ State Machine ใน Unity</p>
-          <div class="project-tags">
-            <span>Unity</span>
-            <span>C#</span>
+              <!-- Project 1 -->
+   <article class="project-card modal-trigger" 
+             data-category="3D Project"
+             data-title="RWBY 3D Remake"
+             data-badge="3D Project"
+             data-desc="3D animation project .I try to remake RWBY anime scene"
+             data-img="Pics\RWBY.png"
+             data-link="https://www.youtube.com/watch?v=e4Cubn5xHGw"
+             data-tags="Bleder,3D">
+      <div class="project-badge">3D project</div>
+      <h3>RWBY 3D Remake</h3>
+      <p>An 3D animation</p>
+      <div class="project-tags">
+        <span>Blender</span>
+        <span>3D</span>
+      </div>
+    </article>
+ <div id="projectModal" class="modal-backdrop is-hidden" aria-hidden="true" role="dialog">
+    <div class="modal-dialog">
+      <button id="modalCloseBtn" type="button" class="modal-close" aria-label="Close modal">&times;</button>
+      
+      <div class="modal-body">
+        <div class="modal-image-wrapper">
+        <img id="modalImg" src="" alt="Project Preview">
+        </div>
+        <div class="modal-info">
+          <span id="modalBadge" class="project-badge"></span>
+          <h2 id="modalTitle"></h2>
+          <p id="modalDesc"></p>
+          <div class="modal-tech-stack">
+            <h4>Technologies Used</h4>
+            <div id="modalTags" class="project-tags"></div>
           </div>
-        </article>
-
-        <article class="project-card" data-category="3D">
-          <div class="project-badge">3D</div>
-          <h3>Interactive Web Canvas Tool</h3>
-          <p>ระบบเว็บแอปพลิเคชันที่เน้นการประมวลผลฝั่ง Client และ UI ที่ลื่นไหล</p>
-          <div class="project-tags">
-            <span>JavaScript</span>
-            <span>CSS Grid</span>
+          <div class="modal-footer-cta">
+            <a id="modalExternalLink" href="#" target="_blank" class="btn btn-primary">More Details</a>
           </div>
-        </article>
-
-         <article class="project-card" data-category="HardWare">
-          <div class="project-badge">HardWare</div>
-          <h3>Interactive Web Canvas Tool</h3>
-          <p>ระบบเว็บแอปพลิเคชันที่เน้นการประมวลผลฝั่ง Client และ UI ที่ลื่นไหล</p>
-          <div class="project-tags">
-            <span>JavaScript</span>
-            <span>CSS Grid</span>
+        </div>
+      </div>
+    </div>
+  </div>
+                <!-- Project 2 -->
+   <article class="project-card modal-trigger" 
+             data-category="3D Project"
+             data-title="Chibi Sephiroth"
+             data-badge="3D Project"
+             data-desc="3D model made in maya"
+             data-img="Pics\Sephi.png"
+             data-tags="MAYA,3D">
+      <div class="project-badge">3D project</div>
+      <h3>Chibi Sephiroth</h3>
+      <p>3D modeling in maya</p>
+      <div class="project-tags">
+        <span>Maya</span>
+        <span>3D</span>
+      </div>
+    </article>
+ <div id="projectModal" class="modal-backdrop is-hidden" aria-hidden="true" role="dialog">
+    <div class="modal-dialog">
+      <button id="modalCloseBtn" type="button" class="modal-close" aria-label="Close modal">&times;</button>
+      
+      <div class="modal-body">
+        <div class="modal-image-wrapper">
+        <img id="modalImg" src="" alt="Project Preview">
+        </div>
+        <div class="modal-info">
+          <span id="modalBadge" class="project-badge"></span>
+          <h2 id="modalTitle"></h2>
+          <p id="modalDesc"></p>
+          <div class="modal-tech-stack">
+            <h4>Technologies Used</h4>
+            <div id="modalTags" class="project-tags"></div>
           </div>
-        </article>
-
-        <article class="project-card" data-category="game">
-          <div class="project-badge">Game</div>
-          <h3>Mobile Tilt & Touch Controller</h3>
-          <p>ระบบจัดการ Touch & Gyroscopic Inputs พร้อมการปรับแต่ง Performance บนอุปกรณ์พกพา</p>
-          <div class="project-tags">
-            <span>Unity</span>
-            <span>Mobile</span>
+        </div>
+      </div>
+    </div>
+  </div>
+                 <!-- Project 3 -->
+   <article class="project-card modal-trigger" 
+             data-category="3D Project"
+             data-title="Metahuman Face scan"
+             data-badge="3D Project"
+             data-desc="Personal Project 3D facescan and import to Unreal metahuman"
+             data-img="Pics\Meta.png"
+             data-tags="Unreal engine,3D">
+      <div class="project-badge">3D project</div>
+      <h3>Metahuman Face scan</h3>
+      <p>3D Human scan project</p>
+      <div class="project-tags">
+        <span>Unreal engine</span>
+        <span>3D</span>
+      </div>
+    </article>
+ <div id="projectModal" class="modal-backdrop is-hidden" aria-hidden="true" role="dialog">
+    <div class="modal-dialog">
+      <button id="modalCloseBtn" type="button" class="modal-close" aria-label="Close modal">&times;</button>
+      
+      <div class="modal-body">
+        <div class="modal-image-wrapper">
+        <img id="modalImg" src="" alt="Project Preview">
+        </div>
+        <div class="modal-info">
+          <span id="modalBadge" class="project-badge"></span>
+          <h2 id="modalTitle"></h2>
+          <p id="modalDesc"></p>
+          <div class="modal-tech-stack">
+            <h4>Technologies Used</h4>
+            <div id="modalTags" class="project-tags"></div>
           </div>
-        </article>
+        </div>
+      </div>
+    </div>
+  </div>
+                 <!-- Project 4 -->
+   <article class="project-card modal-trigger" 
+             data-category="Game"
+             data-title="ConPlan"
+             data-badge="Game"
+             data-desc="An mobile unity game project 2.5D"
+             data-img="Pics\Conplan.png"
+             data-link="https://github.com/Gr1zzy05/ConPlan.git"
+             data-tags="Unity,3D,2D,C#">
+      <div class="project-badge">Game project</div>
+      <h3>ConPlan</h3>
+      <p>Mobile unity game Project</p>
+      <div class="project-tags">
+        <span>Unity</span>
+        <span>3D</span>
+        <span>2D</span>
+        <span>C#</span>
+      </div>
+    </article>
+ <div id="projectModal" class="modal-backdrop is-hidden" aria-hidden="true" role="dialog">
+    <div class="modal-dialog">
+      <button id="modalCloseBtn" type="button" class="modal-close" aria-label="Close modal">&times;</button>
+      
+      <div class="modal-body">
+        <div class="modal-image-wrapper">
+        <img id="modalImg" src="" alt="Project Preview">
+        </div>
+        <div class="modal-info">
+          <span id="modalBadge" class="project-badge"></span>
+          <h2 id="modalTitle"></h2>
+          <p id="modalDesc"></p>
+          <div class="modal-tech-stack">
+            <h4>Technologies Used</h4>
+            <div id="modalTags" class="project-tags"></div>
+             <div class="modal-footer-cta">
+            <a id="modalExternalLink" href="#" target="_blank" class="btn btn-primary">More Details</a>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+                 <!-- Project 5 -->
+   <article class="project-card modal-trigger" 
+             data-category="Game"
+             data-title="ProjectPeaceKeeper"
+             data-badge="Game"
+             data-desc="An Unreal 3d Fps game project presented in HamsterHubGameJam 2023"
+             data-img="Pics\Conplan.png"
+             data-link="https://anuchit-kaewkajorn.itch.io/projectpeacekeeper"
+             data-tags="Unreal engine,3D,C++">
+      <div class="project-badge">Game project</div>
+      <h3>ProjectPeaceKeeper</h3>
+      <p>Unreal engine game Project</p>
+      <div class="project-tags">
+        <span>Unreal engine</span>
+        <span>C++</span>
+        <span>3D</span>
+      </div>
+    </article>
+ <div id="projectModal" class="modal-backdrop is-hidden" aria-hidden="true" role="dialog">
+    <div class="modal-dialog">
+      <button id="modalCloseBtn" type="button" class="modal-close" aria-label="Close modal">&times;</button>
+      
+      <div class="modal-body">
+        <div class="modal-image-wrapper">
+        <img id="modalImg" src="" alt="Project Preview">
+        </div>
+        <div class="modal-info">
+          <span id="modalBadge" class="project-badge"></span>
+          <h2 id="modalTitle"></h2>
+          <p id="modalDesc"></p>
+          <div class="modal-tech-stack">
+            <h4>Technologies Used</h4>
+            <div id="modalTags" class="project-tags"></div>
+             <div class="modal-footer-cta">
+            <a id="modalExternalLink" href="#" target="_blank" class="btn btn-primary">More Details</a>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
+                <!-- Project 6 -->
+   <article class="project-card modal-trigger" 
+             data-category="HardWare"
+             data-title="MakeXCompetition 2022 International"
+             data-badge="HardWare"
+             data-desc="I have participated in MakeXCompetition 2022 International i work as programer and designer of the project."
+             data-img="Pics\MakeX.png"
+             data-tags="Hardware">
+      <div class="project-badge">Hardware project</div>
+      <h3>MakeXCompetition 2022 International</h3>
+      <p>MakeXCompetition 2022</p>
+      <div class="project-tags">
+        <span>HARDWARE</span>
+      </div>
+    </article>
+ <div id="projectModal" class="modal-backdrop is-hidden" aria-hidden="true" role="dialog">
+    <div class="modal-dialog">
+      <button id="modalCloseBtn" type="button" class="modal-close" aria-label="Close modal">&times;</button>
+      
+      <div class="modal-body">
+        <div class="modal-image-wrapper">
+        <img id="modalImg" src="" alt="Project Preview">
+        </div>
+        <div class="modal-info">
+          <span id="modalBadge" class="project-badge"></span>
+          <h2 id="modalTitle"></h2>
+          <p id="modalDesc"></p>
+          <div class="modal-tech-stack">
+            <h4>Technologies Used</h4>
+            <div id="modalTags" class="project-tags"></div>
+             <div class="modal-footer-cta">
+            <a id="modalExternalLink" href="#" target="_blank" class="btn btn-primary">More Details</a>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+     <!-- Project 7 -->
+<article class="project-card modal-trigger" 
+             data-category="Hardware"
+             data-title="SmartIOTsystem"
+             data-badge="Hardware"
+             data-desc="An smart home iot project. I work as programer and Hardware "
+             data-img="Pics\IOT.png"
+             data-link="https://www.youtube.com/watch?v=-87fxBcYmwc&feature=youtu.be"
+             data-tags="IOT,ESP32,C++">
+      <div class="project-badge">IOT project</div>
+      <h3>SmartIOTsystem</h3>
+      <p>Esp32 IOT Smart project</p>
+      <div class="project-tags">
+        <span>IOT</span>
+        <span>ESP32</span>
+        <span>C++</span>
+      </div>
+    </article>
+ <div id="projectModal" class="modal-backdrop is-hidden" aria-hidden="true" role="dialog">
+    <div class="modal-dialog">
+      <button id="modalCloseBtn" type="button" class="modal-close" aria-label="Close modal">&times;</button>
+      
+      <div class="modal-body">
+        <div class="modal-image-wrapper">
+        <img id="modalImg" src="" alt="Project Preview">
+        </div>
+        <div class="modal-info">
+          <span id="modalBadge" class="project-badge"></span>
+          <h2 id="modalTitle"></h2>
+          <p id="modalDesc"></p>
+          <div class="modal-tech-stack">
+            <h4>Technologies Used</h4>
+            <div id="modalTags" class="project-tags"></div>
+             <div class="modal-footer-cta">
+            <a id="modalExternalLink" href="#" target="_blank" class="btn btn-primary">More Details</a>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+                    
+                      <!-- Assignments -->      
       <a href="Assignments\assignment3\index.html" class="card-link-wrapper"> 
      <article class="project-card" data-category="Assignments">
           <div class="project-badge">Past Assignments</div>
@@ -182,7 +421,6 @@
         </article>
         </a>
 
-
          <a href="Assignments\assignment-6\register.html" class="card-link-wrapper"> 
      <article class="project-card" data-category="Assignments">
           <div class="project-badge">Past Assignments</div>
@@ -195,7 +433,6 @@
           </div>
         </article>
         </a>
-
 
          <a href="Assignments\assignment7\index.html" class="card-link-wrapper"> 
      <article class="project-card" data-category="Assignments">
@@ -216,8 +453,8 @@
       <h2 class="section-title">Contacts</h2>
       <form id="contactForm" class="contact-form" novalidate>
         <div class="form-group">
-          <label for="nameInput">IG : <a href="https://www.instagram.com/anuchit_kaewkajorn/?hl=en">Link</a></label>
+          <label for="nameInput">🐦 IG : <a href="https://www.instagram.com/anuchit_kaewkajorn/?hl=en">Link</a></label>
         <div class="form-group">
-          <label for="emailInput">Facebook : <a href="https://web.facebook.com/ThesonicTH">Link</a></label>
+          <label for="emailInput">🔵 Facebook : <a href="https://web.facebook.com/ThesonicTH">Link</a></label>
            <div class="form-group">
-          <label for="emailInput">Linkin : <a href="https://www.linkedin.com/feed/">Link</a></label>
+          <label for="emailInput">✉️ Linkin : <a href="https://www.linkedin.com/feed/">Link</a></label>
