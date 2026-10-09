@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. Theme Toggle (Dark/Light Mode)
+
   const themeToggleBtn = document.getElementById("themeToggleBtn");
   const storedTheme = localStorage.getItem("theme");
 
@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("theme", nextTheme);
   });
 
-  // ส่วน Project Filtering ใน script.js
 const filterButtons = document.querySelectorAll(".filter-btn");
 const projectCards = document.querySelectorAll(".project-card");
 
@@ -33,9 +32,9 @@ filterButtons.forEach((btn) => {
 
     const selectedFilter = btn.dataset.filter;
 
-    // 2. ตรวจสอบการ์ด
+
     projectCards.forEach((card) => {
-      // ดึงหมวดหมู่ทั้งหมดของการ์ดออกมาเป็น Array (แยกด้วยเว้นวรรค)
+
       const categories = (card.dataset.category || "").toLowerCase().split(/\s+/);
 
       if (selectedFilter === "all" || categories.includes(selectedFilter.toLowerCase())) {
@@ -51,7 +50,6 @@ const musicBtn = document.getElementById("musicToggleBtn");
 const bgm = document.getElementById("bgmAudio");
 let isPlaying = false;
 
-// ลดความดังลงเหลือ 30% เพื่อไม่ให้เสียงดังกระแทกหูผู้ใช้
 bgm.volume = 0.3; 
 
 musicBtn.addEventListener("click", () => {
@@ -67,7 +65,7 @@ musicBtn.addEventListener("click", () => {
 
 });
 
-// ================= PROJECT MODAL CONTROLLER =================
+
 const modal = document.getElementById("projectModal");
 const modalCloseBtn = document.getElementById("modalCloseBtn");
 const modalImg = document.getElementById("modalImg");
@@ -77,7 +75,7 @@ const modalDesc = document.getElementById("modalDesc");
 const modalTags = document.getElementById("modalTags");
 const modalExternalLink = document.getElementById("modalExternalLink");
 
-// ฟังก์ชันเปิด Modal
+
 function openProjectModal(card) {
   const title = card.dataset.title || card.querySelector("h3")?.textContent || "";
   const badge = card.dataset.badge || card.querySelector(".project-badge")?.textContent || "";
@@ -86,12 +84,12 @@ function openProjectModal(card) {
   const link = card.dataset.link || "#";
   const tags = (card.dataset.tags || "").split(",").map(t => t.trim()).filter(Boolean);
 
-  // นำข้อมูลไปใส่ใน Modal อย่างปลอดภัย
+
   modalTitle.textContent = title;
   modalBadge.textContent = badge;
   modalDesc.textContent = desc;
 
-  // จัดการรูปภาพ (ถ้าไม่มีรูปให้ซ่อน)
+
   if (img) {
     modalImg.src = img;
     modalImg.style.display = "block";
@@ -99,7 +97,7 @@ function openProjectModal(card) {
     modalImg.style.display = "none";
   }
 
-  // จัดการปุ่มลิงก์
+
   if (link && link !== "#") {
     modalExternalLink.href = link;
     modalExternalLink.style.display = "inline-block";
@@ -107,7 +105,6 @@ function openProjectModal(card) {
     modalExternalLink.style.display = "none";
   }
 
-  // ล้างแท็กเก่าและสร้างแท็กใหม่ด้วย DOM Node
   while (modalTags.firstChild) {
     modalTags.removeChild(modalTags.firstChild);
   }
@@ -117,20 +114,20 @@ function openProjectModal(card) {
     modalTags.appendChild(span);
   });
 
-  // แสดง Modal และล็อกไม่ให้หน้าเว็บด้านหลังเลื่อน
+
   modal.classList.remove("is-hidden");
   modal.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
 }
 
-// ฟังก์ชันปิด Modal
+
 function closeProjectModal() {
   modal.classList.add("is-hidden");
   modal.setAttribute("aria-hidden", "true");
   document.body.style.overflow = "";
 }
 
-// ผูก Event ให้กับการ์ดทุกใบที่มีคลาส modal-trigger
+
 document.querySelectorAll(".modal-trigger").forEach((card) => {
   card.addEventListener("click", () => openProjectModal(card));
 });
@@ -140,7 +137,7 @@ if (modalCloseBtn) {
   modalCloseBtn.addEventListener("click", closeProjectModal);
 }
 
-// ปิดเมื่อคลิกพื้นที่ว่างนอกหน้าต่างกล่อง Modal
+
 if (modal) {
   modal.addEventListener("click", (e) => {
     if (e.target === modal) {
@@ -149,7 +146,7 @@ if (modal) {
   });
 }
 
-// ปิดเมื่อกดปุ่ม Escape บนคีย์บอร์ด
+
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && !modal.classList.contains("is-hidden")) {
     closeProjectModal();
